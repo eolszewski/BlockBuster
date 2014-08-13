@@ -16,6 +16,9 @@
 		</h2>
 		<h4>
 			<%= post.body %>
+			 <% if session[:post_ids] && session[:post_ids].include?(post.id) %>
+			 	<%= link_to 'Edit', edit_post_path(post), :class => "pull-right" %>	
+			 <% end %>
 		</h4>
 	</div>
 </div>

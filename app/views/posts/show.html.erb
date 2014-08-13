@@ -2,11 +2,6 @@
 
  <%= render :partial => @post %>
 
- <% if session[:post_ids] && session[:post_ids].include?(@post.id) %>
- 	<%= link_to 'Edit', edit_post_path(@post) %> |	
- <% end %>
- <%= link_to 'Back', posts_path %>
-
  <div id="comments">
     <%= render :partial => @post.comments %>
  </div>

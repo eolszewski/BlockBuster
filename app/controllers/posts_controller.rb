@@ -8,6 +8,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @posts = @posts.sort_by{|e| -e.upvotes}
+    # @list.sort_by{|e| e[:upvotes]}
   end
 
   # GET /posts/1

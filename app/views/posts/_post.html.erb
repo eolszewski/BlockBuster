@@ -1,11 +1,13 @@
 <div class="row">
-	<div class="col-md-2" style="display: inline-block;">
+	<div class="col-md-2" style="display: inline-block; text-align: center;">
 		<h4 style="vertical-align: top; padding-top: 17px;">
 			<%= link_to '' , like_post_path(post), :method=>:post, :remote => true, :class => "fa fa-arrow-up"%>
 			</i> <%= post.upvotes %>
 			<%= link_to '' , dislike_post_path(post), :method=>:post, :remote => true, :class => "fa fa-arrow-down"%>
 			</i> <%= post.downvotes %>
-			<i>&nbsp;</i>
+			<br>
+			<br>
+			<i><%= post.comments.count %> comments</i>
 		</h4>
 	</div>
 	<div class="col-md-10" style="display: inline-block;">

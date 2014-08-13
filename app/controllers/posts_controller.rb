@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_filter :authorize, only: [:edit, :update]
   helper_method :downvote
-  helper_method :upvote
+  helper_method :upvote  
 
   # GET /posts
   # GET /posts.json
@@ -82,16 +82,6 @@ class PostsController < ApplicationController
       format.html { redirect_to @post, notice: 'Your vote was recorded.' }
       format.json { head :no_content }
     end
-  end
-
-  def downvotes
-    @post = Post.find(params[:id])
-    @post.votes.where(upvote: false)
-  end
-
-  def upvotes
-    @post = Post.find(params[:id])
-    @post.votes.where(upvote: true)
   end
 
   private

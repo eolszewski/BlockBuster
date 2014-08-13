@@ -8,4 +8,13 @@ class Post < ActiveRecord::Base
 			    'The Block on 23rd', 
 			    'The Block on Pearl North & South', 
 			    'The Block on Rio Grande']
+
+
+	def downvotes
+		self.votes.where(upvote: false).count
+	end
+
+	def upvotes
+		self.votes.where(upvote: true).count
+	end
 end

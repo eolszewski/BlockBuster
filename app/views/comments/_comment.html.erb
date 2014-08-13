@@ -1,11 +1,15 @@
 <%= div_for comment do %>
-    <p>
+    <p> 
+    	<h4 style="display: inline-block;">
+		<%= link_to '' , like_post_comment_path(@post, comment), :method=>:post, :remote => true, :class => "fa fa-arrow-up"%>
+		</i> <%= comment.upvotes %>
+		<%= link_to '' , dislike_post_comment_path(@post, comment), :method=>:post, :remote => true, :class => "fa fa-arrow-down"%>
+		</i> <%= comment.downvotes %>
+		<i>&nbsp;</i>
+	</h4>
         <strong>
-            Posted <%= time_ago_in_words(comment.created_at) %> ago
+            <%= comment.body %>
         </strong>
         <br/>
-        <%= comment.body %>
-		 <%= button_to 'Upvote', like_post_comment_path(@post, comment), :method=>:post, :remote => true, :class => "btn btn-primary"  %>
-		 <%= button_to 'Downvote', dislike_post_comment_path(@post, comment), :method=>:post, :remote => true, :class => "btn btn-primary"  %>
     </p>
 <% end %> 

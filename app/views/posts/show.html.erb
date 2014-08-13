@@ -1,8 +1,6 @@
  <p id="notice"><%= notice %></p>
 
  <%= render :partial => @post %>
- <%= button_to 'Upvote', like_post_path(@post), :method=>:post, :remote => true, :class => "btn btn-primary"  %>
- <%= button_to 'Downvote', dislike_post_path(@post), :method=>:post, :remote => true, :class => "btn btn-primary"  %>
 
  <% if session[:post_ids] && session[:post_ids].include?(@post.id) %>
  	<%= link_to 'Edit', edit_post_path(@post) %> |	
@@ -19,5 +17,5 @@
         <%= f.label :body, "New comment" %><br/>
         <%= f.text_area :body %>
     </p>
-    <p><%= f.submit "Add comment" %></p>
+    <%= f.submit "Add comment", :class => 'btn btn-primary' %>
 <% end %>

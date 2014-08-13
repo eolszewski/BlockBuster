@@ -1,5 +1,19 @@
-<h2><%= link_to_unless_current post.location, post %></h2>
-<i class="fa fa-arrow-up"></i>
-<%= simple_format post.body %>
- <%= button_to 'Upvote', like_post_path(post), :method=>:post, :remote => true, :class => "btn btn-primary"  %>
- <%= button_to 'Downvote', dislike_post_path(post), :method=>:post, :remote => true, :class => "btn btn-primary"  %>
+<div>
+	<h4 style="display: inline-block; vertical-align: top; padding-top: 17px;">
+		<%= link_to '' , like_post_path(post), :method=>:post, :remote => true, :class => "fa fa-arrow-up"%>
+		</i> <%= post.upvotes %>
+		<%= link_to '' , dislike_post_path(post), :method=>:post, :remote => true, :class => "fa fa-arrow-down"%>
+		</i> <%= post.downvotes %>
+		<i>&nbsp;</i>
+	</h4>
+	<div style="display: inline-block;">
+		<h2 style="display: inline-block; margin-bottom: 0;">
+			<%= link_to_unless_current post.location, post %>
+		</h2>
+		<h4>
+			<%= post.body %>
+		</h4>
+	</div>
+</div>
+
+

@@ -9,7 +9,6 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @posts = @posts.sort_by{|e| -e.upvotes}
-    # @list.sort_by{|e| e[:upvotes]}
   end
 
   # GET /posts/1

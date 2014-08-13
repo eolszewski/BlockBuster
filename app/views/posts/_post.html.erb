@@ -1,0 +1,4 @@
+<h2><%= link_to_unless_current post.location, post %></h2>
+<%= simple_format post.body %>
+ <%= button_to 'Upvote', like_post_path(post), :method=>:post, :remote => true, :class => "btn btn-primary"  %>
+ <%= button_to 'Downvote', dislike_post_path(post), :method=>:post, :remote => true, :class => "btn btn-primary"  %>
